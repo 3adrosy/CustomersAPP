@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/config
+/BL/bin/Debug
+/BL/obj/Debug
+/CustomersApp/bin
+/CustomersApp/obj/Debug
+/CustomersApp/CustomersApp.csproj.user
+/CustomersApp/Web.Debug.config
+/CustomersApp/Web.Release.config
+/.vs/CustomersApp/v14
+/DAL/bin/Debug
+/DAL/obj/Debug
+/packages

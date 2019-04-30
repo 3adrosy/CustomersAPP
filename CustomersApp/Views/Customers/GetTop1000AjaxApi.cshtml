@@ -1,0 +1,110 @@
+﻿@model IEnumerable<DAL.Models.Customer>
+
+@{
+    ViewBag.Title = "Get Top 1000 Customers By Ajax Api Controller";
+}
+
+<h2>Get Top 1000 Customers By Ajax Api Controller</h2>
+
+<div>
+    @Html.ActionLink("Back to Bulk Insert Page", "BulkInsertOfRandomCustomersPage")
+</div>
+
+<div>
+    @Html.ActionLink("Back to Bulk Insert Time Control Page", "BulkInsertOfRandomCustomersTimeControlPage")
+</div>
+
+<div>
+    @Html.ActionLink("Go Top 1000 MVC Page", "GetTop1000")
+</div>
+
+<div>
+    @Html.ActionLink("Go Top 1000 MVC Ajax Page", "GetTop1000AjaxMVC")
+</div>
+
+<div>
+    @Html.ActionLink("Go Top 1000 Api Ajax Page", "GetTop1000AjaxApi")
+</div>
+
+<br />
+<br/>
+
+<div class="row">
+
+    <div class="col-md-5">
+        @Html.Label("Search All", htmlAttributes: new { @class = "control-label col-md-4" })
+        @Html.TextBox("Search_All","", new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-5">
+        @Html.Label("Search Id", htmlAttributes: new { @class = "control-label col-md-4" })
+        @Html.TextBox("Search_Id", "", new { @class = "form-control" })
+    </div>
+
+
+</div>
+<br/>
+<div class="row">
+
+    <div class="col-md-5">
+        @Html.Label("Search Gender", htmlAttributes: new { @class = "control-label col-md-4" })
+        @Html.TextBox("Search_Gender", "", new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-5">
+        @Html.Label("Search Age", htmlAttributes: new { @class = "control-label col-md-4" })
+        @Html.TextBox("Search_Age", "", new { @class = "form-control" })
+    </div>
+
+</div>
+
+<br/>
+
+<div class="row">
+
+    <div class="col-md-5">
+        @Html.Label("Search Type", htmlAttributes: new { @class = "control-label col-md-4" })
+        @Html.TextBox("Search_Type", "", new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-5">
+        @Html.Label("Search Date", htmlAttributes: new { @class = "control-label col-md-4" })
+        @Html.TextBox("Search_Date", "", new { @class = "form-control" })
+    </div>
+
+</div>
+
+<br />
+
+<table class="table table-bordered table-hover table-striped table-responsive" id="customers_table">
+    <tr class="tableHeader">
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerType.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+
+    </tr>
+
+    <tbody class="tbody"></tbody>
+
+</table>
+
+@section scripts
+{
+    
+    @Scripts.Render("~/Scripts/ViewsScripts/GetTop1000AjaxApi.js")
+
+
+     }

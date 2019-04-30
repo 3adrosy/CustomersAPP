@@ -1,0 +1,68 @@
+﻿@model BL.Dtos.BulkInsertOfRandomCustomersFormDto
+
+@{
+    ViewBag.Title = "Bulk Inser Random Customers within 1 minute.";
+}
+
+<h2>Bulk Insert Random Customers within 1 minute.</h2>
+
+
+@using (Html.BeginForm("BulkInsertOfRandomCustomersTimeControlForm", "Customers", FormMethod.Post, new { id = "bulkForm" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @if (!string.IsNullOrEmpty(Model.ResultMessage))
+        {
+            string col = @Model.IsFailed ? @"#b94a48" : @"#1ba21d";
+
+            <div class="row" style="font:500px; color: @col; font-weight:bold;">
+                    @Html.DisplayFor(model => model.ResultMessage)
+            </div>
+            <br/>
+        }
+
+        <div class="form-group class="row"">
+            @Html.LabelFor(model => model.BulkNumber, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.BulkNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BulkNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Bulk Insert Page", "BulkInsertOfRandomCustomersPage")
+</div>
+
+<div>
+    @Html.ActionLink("Back to Bulk Insert Time Control Page", "BulkInsertOfRandomCustomersTimeControlPage")
+</div>
+
+<div>
+    @Html.ActionLink("Go Top 1000 MVC Page", "GetTop1000")
+</div>
+
+<div>
+    @Html.ActionLink("Go Top 1000 MVC Ajax Page", "GetTop1000AjaxMVC")
+</div>
+
+<div>
+    @Html.ActionLink("Go Top 1000 Api Ajax Page", "GetTop1000AjaxApi")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/ViewsScripts/BulkInsertOfRandomCustomersTimeControlPage.js")
+
+}
